@@ -4,8 +4,8 @@
 def my_any(object):
     for i in object:
         if i:
-            break
-    return True
+            return True
+    return False
 
 
 print('перевірка any')
@@ -76,14 +76,23 @@ print(list(map(min, range(10), range(20, 30), range(25, 15, -1))) ==
 print()
 
 
-# filter
+#filter done
+
 def your_filter(func, *obj):
-    pass
+    res = []
+    if func is None:
+        for i in obj[0]:
+            if i:
+                res.append(i)
+    else:
+        for i in obj[0]:
+            if func(i):
+                res.append(i)
+    return res
 
 
 print('перевірка filter')
-print(list(filter(None, [0, 1, '', 2, 3, [], 5, {}, None, 6, False])) ==
-      your_filter(None, [0, 1, '', 2, 3, [], 5, {}, None, 6, False]))
+print(list(filter(None, [0, 1, '', 2, 3, [], 5, {}, None, 6, False])) == your_filter(None, [0, 1, '', 2, 3, [], 5, {}, None, 6, False]))
 print(list(filter(lambda a: a % 2 == 0, range(10+1))) == your_filter(lambda a: a % 2 == 0, range(10+1)))
 print()
 
