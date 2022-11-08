@@ -81,13 +81,15 @@ print()
 def your_filter(func, *obj):
     res = []
     if func is None:
-        for i in obj[0]:
-            if i:
-                res.append(i)
+        for j in obj:
+            for i in j:
+                if i:
+                    res.append(i)
     else:
-        for i in obj[0]:
-            if func(i):
-                res.append(i)
+        for j in obj:
+            for i in j:
+                if func(i):
+                    res.append(i)
     return res
 
 
