@@ -23,10 +23,6 @@ class circle:
    def get_area(self):
        return f'area = {pi * self.r ** 2}'
 
-# c1 = circle(7)
-# print(c1.get_sides())
-# print(c1.get_perimeter())
-# print(c1.get_area())
 
 class rectangle:
 
