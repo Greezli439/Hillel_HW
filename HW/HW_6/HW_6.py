@@ -21,7 +21,7 @@ print()
 
 #3
 print('ex_3')
-res_a_b = set_a & set_b
+res_a_b = set_a & set_bdit checkout -b dev
 res_b_c = set_c & set_b
 res_a_c = set_a & set_c
 print(f'{res_a_b=}')
