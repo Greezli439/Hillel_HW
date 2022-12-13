@@ -52,3 +52,7 @@ if __name__ == '__main__':
    test5()
    ENABLE_TRACE = True
    test5()
+
+   print('Кількість аргументів, що повертає функція =', len(func()))
+   print(f'Кількість, тип та значення що повертає декорована функція =>', end=' ', file=file)
+   print(*[(type(i), i) for i in func()])

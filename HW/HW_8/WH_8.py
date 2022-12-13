@@ -4,9 +4,8 @@ from math import pi, sqrt
 class circle:
 
 
-   def __init__(self, *args):
-       self.r = args[0]
-
+   def __init__(self, args):
+       self.r = args
 
    def get_type(self):
        return 'circle'
@@ -99,6 +98,8 @@ def get_class(raw_input):
             return triangle(a, b, c)
     else:
         return None
+
+
 if __name__ == '__main__':
     raw_input = input()
 
