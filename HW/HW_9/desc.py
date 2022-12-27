@@ -92,29 +92,33 @@ class Triangle(Figure):
         self.c = c
 
 
+    def is_triangle_non_existent(self):
+        self.res = self.a + self.b < self.c or self.a + self.c < self.b or self.b + self.c < self.a
+        return self.res
+
+
     def get_type(self):
         return self.type
 
 
     def get_sides(self):
-        if is_triangle_non_existent(self.a, self.b, self.c):
+        if self.is_triangle_non_existent():
             return 'такого трикутника не існує'
         return f'a = {self.a}, b = {self.b}, c = {self.c}'
 
 
     def get_perimeter(self):
-        if is_triangle_non_existent(self.a, self.b, self.c):
+        if self.is_triangle_non_existent():
             return 'такого трикутника не існує'
-        global p
-        p = self.a + self.b + self.c
-        return f'perimeter = {p}'
+        self.p = self.a + self.b + self.c
+        return f'perimeter = {self.p}'
 
 
     def get_area(self):
-        if is_triangle_non_existent(self.a, self.b, self.c):
+        if self.is_triangle_non_existent():
             return 'такого трикутника не існує'
-        pp = p / 2
-        return f'area = {sqrt(pp * (pp - self.a) * (pp - self.b) * (pp - self.c))}'
+        self.pp = self.p / 2
+        return f'area = {sqrt(self.pp * (self.pp - self.a) * (self.pp - self.b) * (self.pp - self.c))}'
 
 
 def get_class(raw_input):
@@ -134,16 +138,9 @@ def get_class(raw_input):
             return Rectangle(a, b)
     elif count == 3:
         a, b, c = [int(i) for i in args]
-        if is_triangle_non_existent(a, b, c) or a <= 0 or b <= 0 or c <= 0:
-            print('такого трикутника не існує')
-        else:
-            return Triangle(a, b, c)
+        return Triangle(a, b, c)
     else:
         return None
-
-
-def is_triangle_non_existent(a, b, c):
-    return a + b <= c or a + c <= b or b + c <= a
 
 
 if __name__ == '__main__':
@@ -154,4 +151,3 @@ if __name__ == '__main__':
         print(object.get_sides())
         print(object.get_perimeter())
         print(object.get_area())
-

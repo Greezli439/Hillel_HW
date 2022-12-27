@@ -50,7 +50,6 @@ class Rectangle:
         return f'area = {self.a * self.b}'
 
 
-
 class Triangle:
     type = 'Triangle'
 
